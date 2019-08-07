@@ -108,7 +108,7 @@ def main_proc(site, cua, write):
         if cms_info['vd'] == '1':
             cmseek.success('Starting version detection')
             cms_version = '0'  # Failsafe measure
-            cms_version = version_detect.start(cms, site, cua, ga, scode, ga_content)
+            cms_version = version_detect.start(cms, site, cua, ga, scode, ga_content, init_source[2])
             result.target(site)
             result.cms(cms_info['name'], cms_version, cms_info['url'])
             cmseek.update_log('cms_name', cms_info['name'])  # update log
@@ -205,5 +205,3 @@ signal.signal(signal.SIGINT, signal_handler)
 print(time.asctime(), "Server Starts - %s:%s" % (hostName, hostPort))
 
 myServer.serve_forever()
-
-
